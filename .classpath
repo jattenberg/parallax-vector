@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/colt.jar"/>
+	<classpathentry kind="lib" path="lib/ejml-0.18.jar"/>
+	<classpathentry kind="lib" path="lib/trove.jar"/>
+	<classpathentry kind="lib" path="lib/guava-11.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/hppc-0.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/javolution-5.5.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
