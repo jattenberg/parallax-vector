@@ -31,7 +31,7 @@ public class TestVectorType {
 		assertTrue(vector instanceof HPPCPrimativeMapLinearVector);
 		assertEquals(bins, vector.size());
 		
-		vector = VectorType.TROVEDOUBLEMAP.getVector(bins);
+		vector = VectorType.TROVEMAP.getVector(bins);
 		assertTrue(vector instanceof TrovePrimativeMapLinearVector);
 		assertEquals(bins, vector.size());
 	}

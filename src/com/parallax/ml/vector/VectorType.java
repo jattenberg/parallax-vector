@@ -50,7 +50,7 @@ public enum VectorType {
 			return out;
 		}
 	},
-	TROVEDOUBLEMAP {
+	TROVEMAP {
 		@Override
 		public LinearVector getVector(int bins) {
 			return new TrovePrimativeMapLinearVector(bins);

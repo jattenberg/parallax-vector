@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Copyright 2012 Josh Attenberg. Not for re-use or redistribution.
  ******************************************************************************/
-package com.parallax.ml.vector;
+package com.parallax.ml.vector.util;
 
 
 public enum ValueScaling {

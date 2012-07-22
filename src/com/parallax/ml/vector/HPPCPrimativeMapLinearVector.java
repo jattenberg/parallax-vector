@@ -8,6 +8,7 @@ import java.util.Set;
 import com.carrotsearch.hppc.IntDoubleOpenHashMap;
 import com.carrotsearch.hppc.cursors.IntDoubleCursor;
 import com.google.common.collect.Sets;
+import com.parallax.ml.vector.util.VectorUtils;
 
 public class HPPCPrimativeMapLinearVector extends AbstractLinearVector {
 

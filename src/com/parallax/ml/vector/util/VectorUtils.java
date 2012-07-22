@@ -1,7 +1,9 @@
 /*******************************************************************************
  * Copyright 2012 Josh Attenberg. Not for re-use or redistribution.
  ******************************************************************************/
-package com.parallax.ml.vector;
+package com.parallax.ml.vector.util;
+
+import com.parallax.ml.vector.LinearVector;
 
 public class VectorUtils {
 	private static double absTolx = 1e-4; // tolerance on absolute value difference

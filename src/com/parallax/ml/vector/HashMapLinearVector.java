@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Set;
 
 import com.google.common.collect.Maps;
+import com.parallax.ml.vector.util.VectorUtils;
+
 import static com.google.common.base.Preconditions.checkElementIndex;
 
 public class HashMapLinearVector extends AbstractLinearVector {

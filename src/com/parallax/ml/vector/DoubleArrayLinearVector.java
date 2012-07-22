@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.parallax.ml.vector.util.VectorUtils;
+
 /**
  * DoubleArrayLinearVector
  *

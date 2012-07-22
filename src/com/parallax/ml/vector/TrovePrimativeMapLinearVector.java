@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
+import com.parallax.ml.vector.util.VectorUtils;
 
 /**
  * TrovePrimativeMapLinearVector

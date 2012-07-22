@@ -25,7 +25,7 @@ public class LinearVectorFactory {
 	 */
 	public static LinearVector getVector(int bins) {
 		VectorType type = bins < 12 ? VectorType.DOUBLEARR
-				: VectorType.TROVEDOUBLEMAP;
+				: VectorType.TROVEMAP;
 		return type.getVector(bins);
 	}
 

@@ -1,13 +1,16 @@
 /*******************************************************************************
  * Copyright 2012 Josh Attenberg. Not for re-use or redistribution.
  ******************************************************************************/
-package com.parallax.ml.vector;
+package com.parallax.ml.vector.util;
 
 import static com.google.common.base.Preconditions.checkElementIndex;
 
 import org.ejml.data.D1Matrix64F;
 import org.ejml.data.Matrix64F;
 import org.ejml.data.MatrixIterator;
+
+import com.parallax.ml.vector.LinearVector;
+import com.parallax.ml.vector.LinearVectorFactory;
 
 public class EJMLMatrixDecorator extends D1Matrix64F {
 
