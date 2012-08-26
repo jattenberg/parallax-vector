@@ -17,7 +17,7 @@ import com.parallax.ml.vector.VectorType;
  */
 public class Benchmarks {
 
-	static int dims = 20;
+	static int dims = 19;
 	static int dens = 20;
 	
 	public static long memoryFootprint(VectorType type, int dimension,
@@ -123,7 +123,7 @@ public class Benchmarks {
 		buff.append("\n");
 		for(int i = 0; i < dims; i++) {
 			for (VectorType type : VectorType.values()) {
-				buff.append(timeArr.get(type)[i] + "ms\t");
+				buff.append(timeArr.get(type)[i] + "\t");
 			}
 			buff.append("\n");
 		}

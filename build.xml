@@ -1,0 +1,55 @@
+<project name="parallax-vector" default="dsall" basedir=".">
+	<property name="build.compiler" value="modern" />
+	<property name="name" value="parallax-vector" />
+	<property name="home" value="../parallax-vector" />
+	<property name="lib.home" value="${home}/lib" />
+	<property name="build.home" value="${home}/build" />
+	<property name="build.lib" value="${build.home}/lib" />
+	<property name="classes.home" value="${build.home}/classes" />
+	<property name="src.home" value="${home}/src" />
+	<property name="dist.jar" value="${home}/${name}.jar" />
+
+	<tstamp />
+
+	<target name="all" depends="clean,compile,jar" />
+
+	<path id="src">
+	  <dirset dir="${home}">
+	    <include name="src" />
+	    <include name="test" />
+	    <include name="examples" />
+	  </dirset>
+	</path>
+
+	<path id="classpath">
+	  <fileset dir="${home}/lib" />
+	  <pathelement path="${classes.home}" />
+	</path>
+
+	<target name="clean" >
+	  <delete dir="${build.home}" />
+	  <delete file="${dist.jar}" />
+	  <delete file="${dist.jar}" />
+	</target>
+
+	<target name="compile" depends="clean">
+	  <mkdir dir="${build.lib}" />
+	  <property name="cp" refid="classpath" />
+	  <echo message="--------------------------------- ${name}" />
+	  <echo message="Classpath is ${cp}" />
+	  <mkdir dir="${classes.home}" />
+	  <javac destdir="${classes.home}" debug="on" optimize="off" deprecation="off">
+	    <src path="${src.home}"/>
+	    <classpath refid="classpath" />
+	    <exclude name="**/Test*.java"/>
+	    <exclude name="**/package-info.java"/>
+	  </javac>
+	</target>
+
+
+	<target name="jar" depends="compile">
+	  <jar destfile="${dist.jar}" basedir="${build.home}">
+	    <fileset dir="${build.home}" includes="**/*.class" />
+	  </jar>
+	</target>
+</project>
