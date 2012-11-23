@@ -5,6 +5,7 @@ package com.parallax.ml.vector;
 
 import static com.google.common.base.Preconditions.checkElementIndex;
 import gnu.trove.iterator.TIntDoubleIterator;
+import gnu.trove.iterator.TIntIterator;
 import gnu.trove.map.hash.TIntDoubleHashMap;
 
 import java.util.Iterator;
@@ -37,8 +38,11 @@ class TrovePrimativeMapLinearVector extends AbstractLinearVector {
 	@Override
 	public Set<Integer> getFeatureIndicies() {
 		Set<Integer> out = Sets.newHashSet();
-		for (int i : w.keys())
-			out.add(i);
+		TIntIterator it = w.keySet().iterator();
+		while (it.hasNext()) {
+			int next = it.next();
+			out.add(next);
+		}
 		return out;
 	}
 
