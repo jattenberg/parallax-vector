@@ -1,13 +1,13 @@
 package com.parallax.ml.vector;
 
+import static com.google.common.base.Preconditions.checkElementIndex;
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
 import com.google.common.collect.Maps;
 import com.parallax.ml.vector.util.VectorUtils;
-
-import static com.google.common.base.Preconditions.checkElementIndex;
 
 public class HashMapLinearVector extends AbstractLinearVector {
 

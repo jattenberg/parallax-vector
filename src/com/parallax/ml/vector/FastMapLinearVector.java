@@ -5,9 +5,9 @@ import static com.google.common.base.Preconditions.checkElementIndex;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.parallax.ml.vector.util.VectorUtils;
-
 import javolution.util.FastMap;
+
+import com.parallax.ml.vector.util.VectorUtils;
 
 public class FastMapLinearVector extends AbstractLinearVector {
 

@@ -41,6 +41,15 @@ public interface LinearVector extends Iterable<Integer>
 	public LinearVector minusEquals(LinearVector vect);
 	public LinearVector plusEqualsVectorTimes(LinearVector vect, double factor);
 	public LinearVector minusEqualsVectorTimes(LinearVector vect, double factor);
+
+	public LinearVector times(double value);
+	public LinearVector plus(double value);
+	public LinearVector plus(LinearVector vect);
+	public LinearVector minus(double value);
+	public LinearVector minus(LinearVector vect);
+	public LinearVector plusVectorTimes(LinearVector vect, double factor);
+	public LinearVector minusVectorTimes(LinearVector vect, double factor);
+	
 	/**
 	 * normalize by the L1 norm
 	 */
