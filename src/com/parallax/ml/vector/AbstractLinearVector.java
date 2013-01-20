@@ -200,7 +200,7 @@ public abstract class AbstractLinearVector implements LinearVector,
 				this.size() == vect.size(),
 				"vector sizes must match when doing element-wise addition, given: %s, this is %s",
 				vect.size(), size());
-		LinearVector out = LinearVectorFactory.getDenseVector(numRows);
+		LinearVector out = LinearVectorFactory.getVector(numRows);
 
 		for (int x : vect) {
 			out.resetValue(x, getValue(x) + vect.getValue(x));
@@ -227,7 +227,7 @@ public abstract class AbstractLinearVector implements LinearVector,
 				this.size() == vect.size(),
 				"vector sizes must match when doing element-wise addition, given: %s, this is %s",
 				vect.size(), size());
-		LinearVector out = LinearVectorFactory.getDenseVector(numRows);
+		LinearVector out = LinearVectorFactory.getVector(numRows);
 
 		for (int x : vect) {
 			out.resetValue(x, getValue(x) - vect.getValue(x));
