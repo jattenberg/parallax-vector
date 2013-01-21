@@ -372,5 +372,27 @@ public abstract class AbstractLinearVector implements LinearVector,
 	public double computeL2Norm() {
 		return computeL2Norm(ValueScaling.UNSCALED);
 	}
+	
+	
+	//TODO: override with implementation-specific versions if we feel they'll be more efficient.
+	@Override
+	public double dot(LinearVector x) {
+		double out = 0;
+		for(int x_i : this) {
+			out += getValue(x_i)*x.getValue(x_i);
+		}
+		return out;
+	}
 
+	@Override
+	public double dot(LinearVector x, ValueScaling scale) {
+		if(scale == ValueScaling.UNSCALED) {
+			return dot(x);
+		}
+		double out = 0;
+		for(int x_i : this) {
+			out += getValue(scale, x_i)*scale.scaleValue(x.getValue(x_i));
+		}
+		return out;
+	}
 }

@@ -5,6 +5,8 @@ package com.parallax.ml.vector;
 
 import java.util.List;
 import java.util.Set;
+
+import com.parallax.ml.vector.util.ValueScaling;
 /**
  * TODO: make a clone method
  * @author jattenberg
@@ -49,6 +51,9 @@ public interface LinearVector extends Iterable<Integer>
 	public LinearVector minus(LinearVector vect);
 	public LinearVector plusVectorTimes(LinearVector vect, double factor);
 	public LinearVector minusVectorTimes(LinearVector vect, double factor);
+	
+	public double dot(LinearVector vect);
+	public double dot(LinearVector vect, ValueScaling scale);
 	
 	/**
 	 * normalize by the L1 norm
