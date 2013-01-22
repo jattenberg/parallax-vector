@@ -4,7 +4,7 @@
 package com.parallax.ml.vector;
 
 /**
- * LinearVectorFactory
+ * The factory class used to create and return an instance of type LinearVector
  * 
  * @author Josh Attenberg
  */
@@ -19,8 +19,8 @@ public class LinearVectorFactory {
 	/**
 	 * The method gets Linear Vector by number of bins
 	 * 
-	 * @param bins
-	 *            number of bins
+	 * @param bins	
+	 * 				number of bins
 	 * @return Linear Vector
 	 */
 	public static LinearVector getVector(int bins) {
@@ -54,7 +54,8 @@ public class LinearVectorFactory {
 	}
 	
 	/**
-	 * The method gets a new Linear Vector by original Linear Vector, with a multiplicitive scaling by the given factor
+	 * The method gets a new Linear Vector by original Linear Vector, with a 
+	 * multiplicative scaling by the given factor
 	 * 
 	 * @param v
 	 *            original Linear Vector
@@ -101,6 +102,7 @@ public class LinearVectorFactory {
 		return copyVtoW(v, getDenseVector(v.size()));
 	}
 
+	// copy contents of the vector V to vector W
 	private static LinearVector copyVtoW(LinearVector v, LinearVector W) {
 
 		for (int x_i : v)
@@ -108,6 +110,7 @@ public class LinearVectorFactory {
 		return W;
 	}
 	
+	// scale the contents of the vector V and then copy them to vector W
 	private static LinearVector copyVtoWwithScale(LinearVector v, LinearVector W, double scale) {
 
 		for (int x_i : v)
