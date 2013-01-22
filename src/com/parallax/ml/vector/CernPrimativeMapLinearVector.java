@@ -9,10 +9,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.parallax.ml.vector.util.VectorUtils;
-
 import cern.colt.list.IntArrayList;
 import cern.colt.map.OpenIntDoubleHashMap;
+
+import com.parallax.ml.vector.util.VectorUtils;
 
 /**
  * CernPrimativeMapLinearVector

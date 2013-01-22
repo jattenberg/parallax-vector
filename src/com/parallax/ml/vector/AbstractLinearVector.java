@@ -144,6 +144,16 @@ public abstract class AbstractLinearVector implements LinearVector,
 	}
 
 	@Override
+	public LinearVector times(double val) {
+		LinearVector out = LinearVectorFactory.getVector(numRows);
+		for (int x : this) {
+			double changedVal = getValue(x) * val;
+			out.resetValue(x, changedVal);
+		}
+		return out;
+	}
+
+	@Override
 	public LinearVector plusEquals(double val) {
 		for (int x = 0; x < size(); x++) {
 			double changedVal = getValue(x) + val;
@@ -153,16 +163,31 @@ public abstract class AbstractLinearVector implements LinearVector,
 	}
 
 	@Override
-	public LinearVector minusEquals(double val) {
-		for (int x : this) {
-			double changedVal = getValue(x) - val;
-			resetValue(x, changedVal);
+	public LinearVector plus(double val) {
+		LinearVector out = LinearVectorFactory.getVector(numRows);
+		for (int x = 0; x < size(); x++) {
+			double changedVal = getValue(x) + val;
+			out.resetValue(x, changedVal);
 		}
-		return this;
+		return out;
+	}
+
+	@Override
+	public LinearVector minusEquals(double val) {
+		return plusEquals(-val);
+	}
+
+	@Override
+	public LinearVector minus(double val) {
+		return plus(-val);
 	}
 
 	@Override
 	public LinearVector plusEquals(LinearVector vect) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise addition, given: %s, this is %s",
+				vect.size(), size());
 		for (int x : vect) {
 			updateValue(x, vect.getValue(x));
 		}
@@ -170,7 +195,26 @@ public abstract class AbstractLinearVector implements LinearVector,
 	}
 
 	@Override
+	public LinearVector plus(LinearVector vect) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise addition, given: %s, this is %s",
+				vect.size(), size());
+		LinearVector out = LinearVectorFactory.getVector(numRows);
+
+		for (int x : vect) {
+			out.resetValue(x, getValue(x) + vect.getValue(x));
+		}
+		return out;
+	}
+
+	@Override
 	public LinearVector minusEquals(LinearVector vect) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise subtraction, given: %s, this is %s",
+				vect.size(), size());
+
 		for (int x : vect) {
 			updateValue(x, -vect.getValue(x));
 		}
@@ -178,17 +222,69 @@ public abstract class AbstractLinearVector implements LinearVector,
 	}
 
 	@Override
+	public LinearVector minus(LinearVector vect) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise addition, given: %s, this is %s",
+				vect.size(), size());
+		LinearVector out = LinearVectorFactory.getVector(numRows);
+
+		for (int x : vect) {
+			out.resetValue(x, getValue(x) - vect.getValue(x));
+		}
+		return out;
+	}
+
+	@Override
 	public LinearVector plusEqualsVectorTimes(LinearVector vect, double factor) {
-		for (int x : vect)
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise subtraction, given: %s, this is %s",
+				vect.size(), size());
+		for (int x : vect) {
 			updateValue(x, vect.getValue(x) * factor);
+		}
 		return this;
 	}
 
 	@Override
+	public LinearVector plusVectorTimes(LinearVector vect, double factor) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise addition, given: %s, this is %s",
+				vect.size(), size());
+		LinearVector out = LinearVectorFactory.getDenseVector(numRows);
+
+		for (int x : vect) {
+			out.resetValue(x, getValue(x) + vect.getValue(x) * factor);
+		}
+		return out;
+	}
+
+	@Override
 	public LinearVector minusEqualsVectorTimes(LinearVector vect, double factor) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise subtraction, given: %s, this is %s",
+				vect.size(), size());
+
 		for (int x : vect)
 			updateValue(x, -vect.getValue(x) * factor);
 		return this;
+	}
+
+	@Override
+	public LinearVector minusVectorTimes(LinearVector vect, double factor) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise subtraction, given: %s, this is %s",
+				vect.size(), size());
+		LinearVector out = LinearVectorFactory.getDenseVector(numRows);
+
+		for (int x : vect) {
+			out.resetValue(x, getValue(x) - vect.getValue(x) * factor);
+		}
+		return out;
 	}
 
 	@Override
@@ -276,5 +372,27 @@ public abstract class AbstractLinearVector implements LinearVector,
 	public double computeL2Norm() {
 		return computeL2Norm(ValueScaling.UNSCALED);
 	}
+	
+	
+	//TODO: override with implementation-specific versions if we feel they'll be more efficient.
+	@Override
+	public double dot(LinearVector x) {
+		double out = 0;
+		for(int x_i : this) {
+			out += getValue(x_i)*x.getValue(x_i);
+		}
+		return out;
+	}
 
+	@Override
+	public double dot(LinearVector x, ValueScaling scale) {
+		if(scale == ValueScaling.UNSCALED) {
+			return dot(x);
+		}
+		double out = 0;
+		for(int x_i : this) {
+			out += getValue(scale, x_i)*scale.scaleValue(x.getValue(x_i));
+		}
+		return out;
+	}
 }
