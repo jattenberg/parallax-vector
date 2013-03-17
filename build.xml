@@ -48,7 +48,7 @@
 
 	<target name="vecjar" depends="veccompile">
 		<jar destfile="${vec.dist.jar}" basedir="${vec.build.home}">
-			<fileset dir="${vec.build.home}" includes="**/*.class" />
+			<fileset dir="${vec.classes.home}" includes="**/*.class" />
 		</jar>
 	</target>
 </project>
