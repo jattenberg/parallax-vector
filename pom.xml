@@ -1,14 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.data-scientists</groupId>
 	<artifactId>parallax-vector</artifactId>
-	<version>0.1.5-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>parallax-vector</name>
 	<description>Efficient sparse vector implementations for common machine learning tasks</description>
 	<url>https://github.com/jattenberg/parallax-vector</url>
+
+	<developers>
+		<developer>
+			<id>jattenberg</id>
+			<name>josh attenberg</name>
+			<email>jattenbe@stern.nyu.edu</email>
+			<timezone>GMT+5</timezone>
+			<roles></roles>
+		</developer>
+	</developers>
 
 	<licenses>
 		<license>
@@ -115,7 +126,7 @@
 				<version>2.5</version>
 				<configuration>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<!--<useReleaseProfile>false</useReleaseProfile> -->
+					<useReleaseProfile>false</useReleaseProfile>
 					<releaseProfiles>release</releaseProfiles>
 					<goals>deploy</goals>
 				</configuration>
@@ -137,9 +148,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>nexus-releases</id>
-			<name>Nexus Release Repository</name>
-			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
 		</repository>
 	</distributionManagement>
 
