@@ -395,4 +395,19 @@ public abstract class AbstractLinearVector implements LinearVector,
 		}
 		return out;
 	}
+
+        @Override
+	public LinearVector times(LinearVector vect) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise multiplication, given: %s, this is %s",
+				vect.size(), size());
+
+	    for (int x_i : vect) {
+		this.resetValue(x_i, vect.getValue(x_i)*getValue(x_i));
+	    }
+
+	    return this;
+	}
+
 }

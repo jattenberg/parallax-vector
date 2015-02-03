@@ -16,7 +16,7 @@ public enum ValueScaling {
 	},
 	/**
 	 * take the log of the input value
-	 * return rawValue > 0 ? Math.log(rawValue) : 0;
+	 * return rawValue lt 0 ? Math.log(rawValue) : 0;
 	 */
 	LOGSCALED {
 		@Override
@@ -26,7 +26,7 @@ public enum ValueScaling {
 	},
 	/**
 	 * scale according to log(1+inputValue)
-	 * return rawValue > 0 ? Math.log(1 + rawValue) : rawValue;
+	 * return rawValue lt 0 ? Math.log(1 + rawValue) : rawValue;
 	 */
 	TDISTSCALE {
 		@Override
@@ -36,7 +36,7 @@ public enum ValueScaling {
 	},
 	/**
 	 * scale according to log(1+inputValue)/inputValue
-	 * return rawValue > 0 ? Math.log(1 + rawValue) / rawValue : rawValue;
+	 * return rawValue lt 0 ? Math.log(1 + rawValue) / rawValue : rawValue;
 	 */
 	PRESERVING {
 		@Override

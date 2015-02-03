@@ -12,24 +12,28 @@ import com.dsi.parallax.ml.vector.util.ValueScaling;
  * @author jattenberg
  *
  */
-public interface LinearVector extends Iterable<Integer>
-{
+public interface LinearVector extends Iterable<Integer> {
 	public double getValue(int index);
+
 	/**
 	 * increments the value at the given index by the given value
 	 * 
+	 * @param index index to be updated
+	 * @param value the value to be set
 	 */
 	public void updateValue(int index, double value);
 	
 	/**
 	 * resets the value at the given index by the given value
-	 * 
+	 * @param index index to be updated
+	 * @param value the value to be set
+	 *
 	 */
 	public void resetValue(int index, double value);
 	
 	/**
 	 * delete the value at the given index
-	 * 
+	 * @param index vector index to be deleted 
 	 */
 	public void delete(int index);
 	
@@ -159,6 +163,14 @@ public interface LinearVector extends Iterable<Integer>
 	
 	public double dot(LinearVector vect);
 	public double dot(LinearVector vect, ValueScaling scale);
+
+	/**
+	 * element-wise multiplication of two vectors
+	 * @param vect
+	 *          vector to multiply by
+	 * @return an instance of the modified linear vector
+	 */
+	public LinearVector times(LinearVector vect);
 	
 	/**
 	 * normalize by the L1 norm
