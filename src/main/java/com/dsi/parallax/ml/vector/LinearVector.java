@@ -176,5 +176,9 @@ public interface LinearVector extends Iterable<Integer> {
 	 * normalize by the L1 norm
 	 */
 	public void absNormalize();
-	
+
+	/**
+	 * @return a vector with identical values to this
+	 */
+	public LinearVector copy();
 }

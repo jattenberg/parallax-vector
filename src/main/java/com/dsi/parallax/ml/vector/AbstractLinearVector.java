@@ -410,4 +410,15 @@ public abstract class AbstractLinearVector implements LinearVector,
 	    return this;
 	}
 
+        @Override
+        public LinearVector copy() {
+	    LinearVector vect = typedCopy();
+	    for (int x_i : this) {
+		vect.resetValue(x_i, getValue(x_i));
+	    }
+
+	    return vect;
+	}
+
+        abstract LinearVector typedCopy();
 }

@@ -69,4 +69,8 @@ public class FastMapLinearVector extends AbstractLinearVector {
 		return w.keySet().iterator();
 	}
 
+        @Override
+        LinearVector typedCopy() {
+	    return new FastMapLinearVector(numRows);
+	}
 }

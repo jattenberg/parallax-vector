@@ -106,4 +106,9 @@ class TrovePrimativeMapLinearVector extends AbstractLinearVector {
 			for (int i = 0; i < numRows; i++)
 				w.put(i, param);
 	}
+
+        @Override
+        LinearVector typedCopy() {
+	    return new TrovePrimativeMapLinearVector(numRows);
+	}
 }

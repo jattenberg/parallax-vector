@@ -98,4 +98,8 @@ public class HPPCPrimativeMapLinearVector extends AbstractLinearVector {
 
 	}
 
+        @Override
+        LinearVector typedCopy() {
+	    return new HPPCPrimativeMapLinearVector(numRows);
+	}
 }

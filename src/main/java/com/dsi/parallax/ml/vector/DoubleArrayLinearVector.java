@@ -72,4 +72,8 @@ class DoubleArrayLinearVector extends AbstractLinearVector {
 			Arrays.fill(vec, param);
 	}
 
+        @Override
+        LinearVector typedCopy() {
+	    return new DoubleArrayLinearVector(numRows);
+        }
 }

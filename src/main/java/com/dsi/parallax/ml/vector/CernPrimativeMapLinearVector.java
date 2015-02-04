@@ -147,4 +147,9 @@ class CernPrimativeMapLinearVector extends AbstractLinearVector {
 				updateValue(i, param);
 	}
 
+        @Override
+	LinearVector typedCopy() {
+	    return new CernPrimativeMapLinearVector(numRows);
+        }
+
 }

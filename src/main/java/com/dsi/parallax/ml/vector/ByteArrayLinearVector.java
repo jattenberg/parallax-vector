@@ -108,4 +108,9 @@ class ByteArrayLinearVector extends AbstractLinearVector
 		for(int i = 0; i < numRows; i++)
 			updateValue(i, param);
 	}
+
+        @Override
+	LinearVector typedCopy() {
+	    return new ByteArrayLinearVector(numRows);
+	}
 }

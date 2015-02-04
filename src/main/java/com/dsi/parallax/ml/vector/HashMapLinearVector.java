@@ -67,4 +67,9 @@ public class HashMapLinearVector extends AbstractLinearVector {
 		return w.keySet().iterator();
 	}
 
+
+        @Override
+        LinearVector typedCopy() {
+	    return new HashMapLinearVector(numRows);
+        }
 }
