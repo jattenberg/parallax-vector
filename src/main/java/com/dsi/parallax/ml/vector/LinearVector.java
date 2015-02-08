@@ -168,9 +168,17 @@ public interface LinearVector extends Iterable<Integer> {
 	 * element-wise multiplication of two vectors
 	 * @param vect
 	 *          vector to multiply by
-	 * @return an instance of the modified linear vector
+	 * @return an instance of a new vector resulting from elemwise mult
 	 */
 	public LinearVector times(LinearVector vect);
+
+	/**
+	 * in place element-wise multiplication of two vectors
+	 * @param vect
+	 *          vector to multiply by
+	 * @return an instance of a modified from elemwise mult
+	 */
+	public LinearVector timesEquals(LinearVector vect);
 	
 	/**
 	 * normalize by the L1 norm

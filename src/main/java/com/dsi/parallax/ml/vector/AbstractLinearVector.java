@@ -403,12 +403,29 @@ public abstract class AbstractLinearVector implements LinearVector,
 				"vector sizes must match when doing element-wise multiplication, given: %s, this is %s",
 				vect.size(), size());
 
+	    LinearVector out = copy();
+
+	    for (int x_i : vect) {
+		out.resetValue(x_i, vect.getValue(x_i)*out.getValue(x_i));
+	    }
+
+	    return out;
+	}
+
+        @Override
+	public LinearVector timesEquals(LinearVector vect) {
+		checkArgument(
+				this.size() == vect.size(),
+				"vector sizes must match when doing element-wise multiplication, given: %s, this is %s",
+				vect.size(), size());
+
 	    for (int x_i : vect) {
 		this.resetValue(x_i, vect.getValue(x_i)*getValue(x_i));
 	    }
 
 	    return this;
 	}
+
 
         @Override
         public LinearVector copy() {
